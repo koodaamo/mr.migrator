@@ -6,7 +6,7 @@ from setuptools import setup, find_packages
 import os
 
 install_requires = [
-    'collective.transmogrifier',
+    'collective.transmogrifier=1.3-nocmf',
     'setuptools',
     'z3c.autoinclude',
     'zc.recipe.egg'
@@ -26,7 +26,7 @@ except SyntaxError:
 def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
 
-version = '1.0'
+version = '1.0-lessdeps'
 
 long_description = (
     read('README.rst')
@@ -46,7 +46,6 @@ long_description = (
 entry_point = ''
 entry_points = {"zc.buildout": ["default = mr.migrator.recipe:Recipe"],
                 'console_scripts': ['migrate = mr.migrator.runner:runner'],
-                "z3c.autoinclude.plugin": ["target = plone"],
                 }
 
 tests_require = ['zope.testing', 'zc.buildout']
